@@ -1,0 +1,40 @@
+{template 'header'}
+<br />
+<br />
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="well well-lg">
+                <form role="form" id="DefaultFrom" action=" " method="post">
+                    <div class="control-group">
+                        <label class="control-label">学院：</label>
+                        <select class="form-control" name="depart" disabled>
+                            <option>信息与通信学院</option>
+                            <option>机电工程学院</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>用户名：</label>
+                        <input class="form-control"  type="text" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label>密码：</label>
+                        <input class="form-control"  type="password" name="password" />
+                    </div>
+                    <input type="hidden" name="token" value="{$_W['token']}">
+                    <input class="btn btn-block btn-lg btn-info" name="submit" type="submit" value="登陆">
+                </form>
+            </div>
+            <div id="footer">
+                <div class="footerNav">
+                    <a href="#">关于我们</a> | <a href="#">联系我们</a>
+                </div>
+                <div class="copyRight">
+                    Copyright ©信息与通信学院新媒体中心 版权所有
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template 'footer'}

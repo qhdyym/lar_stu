@@ -1,0 +1,93 @@
+{template 'header'}
+<div class="jumbotron">
+    <h3>微风学生管理</h3>
+</div>
+<hr />
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="panel-group" id="panel-lar">
+                <form role="form" action=" " method="post">
+                {loop $AllData $key $value}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-title" data-toggle="collapse" data-parent="#panel-lar" href="#panel-element-{$key}">
+                            {if $value['DenyScore'] >= 25}
+                                <span style="color: #cc0000;">{$value['name']} {$value['DenyScore']}</span>
+                            {/if}
+                            {if $value['DenyScore'] < 25 && $value['DenyScore'] >= 15}
+                                <span style="color: orange;;">{$value['name']} {$value['DenyScore']}</span>
+                            {/if}
+                            {if $value['DenyScore'] < 15}
+                                <span style="color: olivedrab;;">{$value['name']} {$value['DenyScore']}</span>
+                            {/if}
+                            <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+                        </a>
+
+                    </div>
+                    <div id="panel-element-{$key}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {$value['SchoolId']}
+                            <br />
+                            {$value['Detail']}
+                            {if $gate == 1}
+                            <hr />
+                            <div class="well">
+                                <div class="form-group">
+                                    <input class="form-control"  type="text" name="more{$value['SchoolId']}" />
+                                </div>
+                                <div class="has-error radio-inline">
+                                    <label class="radio radio-inline">
+                                        <input type="radio" name="as{$value['SchoolId']}"  value="旷课" >旷课
+                                    </label>
+                                </div>
+                                <div class="has-warning radio-inline">
+                                    <label class="radio radio-inline">
+                                        <input type="radio" name="as{$value['SchoolId']}"  value="迟到">迟到
+                                    </label>
+                                </div>
+                                <div class="has-success radio-inline">
+                                    <label class="radio radio-inline">
+                                        <input type="radio" name="as{$value['SchoolId']}"  value="早退">早退
+                                    </label>
+                                </div>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {/loop}
+                    <br />
+                    <input type="hidden" name="token" value="{$_W['token']}">
+                    <input type="hidden" name="TeacherName" value="{$teacher}">
+                    <input type="hidden" name="CourseNumber" value="{$KeyWord}">
+                    {if $gate == 1}
+                    <button class="btn btn-block btn-lg btn-info"  data-toggle="modal" data-target="#myModal">
+                        提交
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">提交确认</h4>
+                                </div>
+                                <div class="modal-body">
+                                    提交后无法直接更改，确认提交？
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <input class="btn btn-info" value="提交" type="submit" name="sub" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- endModal -->
+                    {/if}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{template 'footer'}

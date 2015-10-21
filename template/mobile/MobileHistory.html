@@ -1,0 +1,60 @@
+{template 'header'}
+<div class="jumbotron">
+    <h3>微风学生管理</h3>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul class="nav nav-pills">
+                <li role="presentation" ><a href="{php echo $this->createMobileUrl('Search');}">搜索</a></li>
+                <li role="presentation" class="active"><a href="#">历史纪录</a></li>
+            </ul>
+            <hr />
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        课号
+                    </th>
+                    <th>
+                        学号
+                    </th>
+                    <th>
+                        状态
+                    </th>
+                    <th>
+                        时间
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {loop $MobileHistoryData $key $value}
+                <tr class="active">
+                    <td>
+                        {$value['coursenumber']}
+                    </td>
+                    <td>
+                        {$value['schoolid']}
+                    </td>
+                    <td>
+                        {$value['des']}
+                    </td>
+                    <td>
+                        {$value['time']}
+                    </td>
+                </tr>
+                {/loop}
+                </tbody>
+            </table>
+            <div id="footer">
+                <div class="footerNav">
+                    <a href="#">关于我们</a> | <a href="#">联系我们</a>
+                </div>
+                <div class="copyRight">
+                    Copyright ©信息与通信学院新媒体中心 版权所有
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template 'footer'}

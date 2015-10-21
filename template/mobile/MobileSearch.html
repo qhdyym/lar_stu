@@ -1,0 +1,51 @@
+{template 'header'}
+<div class="jumbotron">
+    <h3>微风学生管理</h3>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">搜索</a></li>
+                <li role="presentation"><a href="{php echo $this->createMobileUrl('History',['teacher' => $teacher]);}">历史纪录</a></li>
+            </ul>
+            <hr />
+            <form role="form" action="" method="post">
+                {if $State < 5 }
+                <div class="form-group">
+                    <label class="control-label">课号：</label>
+                    <select class="form-control" name="coursenumber">
+                        {loop $TeacherCourse $key $value}
+                        <option>{$value['coursenumber']}-{$value['coursename']}</option>
+                        {/loop}
+                    </select>
+                </div>
+                {/if}
+                {if $State < 4 }
+                <div class="form-group">
+                    <label for="Class">班级：</label>
+                    <input type="text" class="form-control" id="class" name="class" placeholder="请输入完整班级！" />
+                </div>
+                {/if}
+                {if $State < 2 }
+                <div class="form-group">
+                    <label for="SchoolId">学号：</label>
+                    <input type="text" class="form-control" id="SchoolId" name="SchoolId" placeholder="" />
+                </div>
+                {/if}
+                <input type="hidden" name="token" value="{$_W['token']}">
+                <input class="btn btn-block btn-lg btn-info" name="submit" type="submit" value="查询">
+            </form>
+            <div id="footer">
+                <div class="footerNav">
+                    <a href="#">关于我们</a> | <a href="#">联系我们</a>
+                </div>
+                <div class="copyRight">
+                    Copyright ©信息与通信学院新媒体中心 版权所有
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{template 'footer'}

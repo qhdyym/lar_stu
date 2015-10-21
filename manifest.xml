@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="false">
+		<name><![CDATA[学生查询管理]]></name>
+		<identifie><![CDATA[mais_students]]></identifie>
+		<version><![CDATA[1.0.0]]></version>
+		<type><![CDATA[biz]]></type>
+		<ability><![CDATA[学生查询管理]]></ability>
+		<description><![CDATA[学生查询管理]]></description>
+		<author><![CDATA[mais]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="click" />
+			<message type="view" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+			<message type="click" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="查询入口" do="Index" state="" direct="false" />
+		</cover>
+		<rule>
+			<entry title="回复规则" do="Respond" state="" direct="false" />
+		</rule>
+		<menu>
+			<entry title="账号设置" do="Admin" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
