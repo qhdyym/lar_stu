@@ -12,15 +12,23 @@ class Mais_studentsModuleProcessor extends WeModuleProcessor
 	public function respond()
 	{
 		$content = $this->message['content'];
-		if($this->CheckLogin())
+		if($content)
 		{
-			$returnData = $this->Routes($content);
-			return $this->respText($returnData);
+			if($this->CheckLogin())
+			{
+				$returnData = $this->Routes($content);
+				return $this->respText($returnData);
+			}
+			else
+			{
+				return $this->respText('您没有权利查询！');
+			}
 		}
 		else
 		{
-			return $this->respText('您没有权利查询！');
+			return $this->respText('Sorry');
 		}
+
 
 	}
 
